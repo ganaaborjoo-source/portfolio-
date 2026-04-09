@@ -446,8 +446,9 @@ footer {
 }
 
 /* SCROLL REVEAL */
-.reveal { opacity: 0; transform: translateY(30px); transition: opacity .6s ease, transform .6s ease; }
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .5s ease, transform .5s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
+.hero-left .reveal, .hero .reveal { opacity: 1; transform: none; }
 
 @media (max-width: 900px) {
   nav { padding: 1rem 1.5rem; }
@@ -738,11 +739,11 @@ footer {
             G.E.T DESIGN
           </div>
         </a>
-        <a href="mailto:ganaaborjoo@gmail.com" class="contact-link">
+        <a href="/cdn-cgi/l/email-protection#5334323d3232313c21393c3c13343e323a3f7d303c3e" class="contact-link">
           <div class="cl-icon">✉️</div>
           <div>
             <div style="font-size:.72rem;letter-spacing:.1em;color:rgba(255,255,255,.3);margin-bottom:.2rem">И-МЭЙЛ</div>
-            ganaaborjoo@gmail.com
+            <span class="__cf_email__" data-cfemail="6205030c0303000d10080d0d22050f030b0e4c010d0f">[email&#160;protected]</span>
           </div>
         </a>
       </div>
@@ -794,8 +795,25 @@ footer {
   <div>Улаанбаатар, Монгол</div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 const reveals = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {
-    if (entry.isI
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 60);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.05 });
+reveals.forEach(el => observer.observe(el));
+window.addEventListener('load', () => {
+  reveals.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight) {
+      el.classList.add('visible');
+    }
+  });
+});
+</script>
+</body>
+</html>
