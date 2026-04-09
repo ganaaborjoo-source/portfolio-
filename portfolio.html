@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Дизайн Студи — Маркетинг & Брэнд</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0e0e0e;
+  --paper: #f5f2ec;
+  --accent: #d4402a;
+  --accent2: #2a5fd4;
+  --muted: #7a7670;
+  --card: #ffffff;
+  --border: rgba(14,14,14,0.1);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.2rem 4rem;
+  background: var(--paper);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: .12em;
+  color: var(--ink);
+  text-decoration: none;
+}
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  font-size: .85rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--accent); }
+.nav-cta {
+  font-size: .85rem;
+  letter-spacing: .06em;
+  padding: .55rem 1.4rem;
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background .2s;
+}
+.nav-cta:hover { background: var(--accent); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 72px;
+}
+.hero-left {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 6rem 4rem 4rem 4rem;
+}
+.hero-eyebrow {
+  font-size: .75rem; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: .8rem;
+}
+.hero-eyebrow::before {
+  content: ''; width: 2rem; height: 1px; background: var(--accent);
+}
+.hero-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(4rem, 8vw, 7rem);
+  line-height: .9;
+  letter-spacing: .04em;
+  margin-bottom: 1.5rem;
+}
+.hero-name span { color: var(--accent); }
+.hero-desc {
+  font-size: 1rem; line-height: 1.7; color: var(--muted);
+  max-width: 380px; margin-bottom: 2.5rem;
+}
+.hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-primary {
+  padding: .8rem 2rem; background: var(--ink); color: var(--paper);
+  font-family: 'DM Sans', sans-serif; font-size: .9rem;
+  letter-spacing: .06em; border: 2px solid var(--ink);
+  cursor: pointer; text-decoration: none; transition: all .2s;
+}
+.btn-primary:hover { background: var(--accent); border-color: var(--accent); }
+.btn-outline {
+  padding: .8rem 2rem; background: transparent; color: var(--ink);
+  font-family: 'DM Sans', sans-serif; font-size: .9rem;
+  letter-spacing: .06em; border: 2px solid var(--ink);
+  cursor: pointer; text-decoration: none; transition: all .2s;
+}
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+.hero-stats {
+  margin-top: 4rem; display: flex; gap: 3rem;
+  padding-top: 2rem; border-top: 1px solid var(--border);
+}
+.stat-num {
+  font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem;
+  color: var(--accent); line-height: 1;
+}
+.stat-label { font-size: .78rem; color: var(--muted); letter-spacing: .06em; margin-top: .3rem; }
+
+.hero-right {
+  background: var(--ink);
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  padding: 4rem 3rem;
+  position: relative; overflow: hidden;
+}
+.hero-right::before {
+  content: 'DESIGN';
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 12rem; color: rgba(255,255,255,.04);
+  position: absolute; right: -2rem; bottom: -2rem;
+  line-height: 1; pointer-events: none;
+}
+.mock-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: .8rem;
+  width: 100%; max-width: 360px;
+}
+.mock-card {
+  border-radius: 4px; overflow: hidden;
+  aspect-ratio: 1;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 1rem; position: relative;
+  animation: fadeUp .6s ease both;
+}
+.mock-card:nth-child(1) { background: #d4402a; animation-delay: .1s; }
+.mock-card:nth-child(2) { background: #2a5fd4; animation-delay: .2s; aspect-ratio: 1/.8; }
+.mock-card:nth-child(3) { background: #1a1a1a; animation-delay: .3s; aspect-ratio: 1/.8; }
+.mock-card:nth-child(4) { background: #e8c14a; animation-delay: .4s; }
+.mock-card-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem; letter-spacing: .1em;
+  color: rgba(255,255,255,.9);
+}
+.mock-card:nth-child(4) .mock-card-label { color: rgba(0,0,0,.7); }
+.mock-card-sub { font-size: .65rem; color: rgba(255,255,255,.5); letter-spacing: .08em; }
+.mock-card:nth-child(4) .mock-card-sub { color: rgba(0,0,0,.4); }
+.mock-shape {
+  position: absolute; top: 1rem; right: 1rem;
+  width: 2rem; height: 2rem; border-radius: 50%;
+  background: rgba(255,255,255,.15);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* SECTION COMMONS */
+section { padding: 6rem 4rem; }
+.section-label {
+  font-size: .72rem; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: .8rem;
+  display: flex; align-items: center; gap: .8rem;
+}
+.section-label::before { content: ''; width: 1.5rem; height: 1px; background: var(--accent); }
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: .95; letter-spacing: .04em; margin-bottom: 1rem;
+}
+
+/* SERVICES */
+.services { background: var(--ink); color: var(--paper); }
+.services .section-title { color: var(--paper); }
+.services-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+  margin-top: 4rem;
+  border: 1px solid rgba(255,255,255,.08);
+}
+.service-item {
+  padding: 2.5rem 2rem;
+  border-right: 1px solid rgba(255,255,255,.08);
+  transition: background .25s;
+  position: relative; overflow: hidden;
+}
+.service-item:last-child { border-right: none; }
+.service-item:hover { background: rgba(255,255,255,.04); }
+.service-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3.5rem; color: rgba(255,255,255,.08);
+  line-height: 1; margin-bottom: 1rem;
+}
+.service-name {
+  font-size: 1.1rem; font-weight: 500;
+  color: var(--paper); margin-bottom: .8rem;
+}
+.service-desc { font-size: .85rem; line-height: 1.7; color: rgba(255,255,255,.5); }
+.service-price {
+  margin-top: 1.5rem; padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,.1);
+  font-size: .8rem; color: var(--accent);
+  letter-spacing: .06em;
+}
+
+/* PORTFOLIO */
+.portfolio-intro {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  margin-bottom: 3rem;
+}
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: .8rem;
+}
+.portfolio-item {
+  background: var(--ink);
+  border-radius: 4px; overflow: hidden;
+  position: relative; cursor: pointer;
+  transition: transform .25s;
+}
+.portfolio-item:hover { transform: translateY(-4px); }
+.portfolio-item:hover .portfolio-overlay { opacity: 1; }
+.portfolio-thumb {
+  width: 100%; aspect-ratio: 4/3;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.pt-social { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); }
+.pt-brand  { background: linear-gradient(135deg, #2c1810 0%, #8b2500 100%); }
+.pt-ads    { background: linear-gradient(135deg, #0d1b2a 0%, #1b4332 100%); }
+.pt-social2{ background: linear-gradient(135deg, #1c0522 0%, #6a0572 100%); }
+.pt-poster { background: linear-gradient(135deg, #1a1000 0%, #7d5a00 100%); }
+.pt-brand2 { background: linear-gradient(135deg, #001f3d 0%, #003d7d 100%); }
+
+.mock-social {
+  width: 80%; display: grid; grid-template-columns: 1fr 1fr; gap: 6px;
+}
+.ms-post {
+  border-radius: 4px; aspect-ratio: 1;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Bebas Neue', sans-serif; font-size: .7rem;
+  letter-spacing: .1em; color: rgba(255,255,255,.6);
+}
+.ms-post:nth-child(1) { background: rgba(212,64,42,.4); }
+.ms-post:nth-child(2) { background: rgba(42,95,212,.4); }
+.ms-post:nth-child(3) { background: rgba(255,255,255,.1); }
+.ms-post:nth-child(4) { background: rgba(232,193,74,.4); }
+
+.mock-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem; letter-spacing: .2em;
+  color: rgba(255,255,255,.8);
+  text-align: center;
+}
+.mock-logo-sub { font-size: .5rem; letter-spacing: .3em; color: rgba(255,255,255,.4); display: block; }
+
+.mock-ad {
+  width: 75%; background: rgba(255,255,255,.06);
+  border-radius: 4px; padding: 1rem; text-align: center;
+}
+.mock-ad-head { font-size: .6rem; letter-spacing: .1em; color: rgba(255,255,255,.4); margin-bottom: .4rem; }
+.mock-ad-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; color: rgba(255,255,255,.8); }
+.mock-ad-btn {
+  margin-top: .6rem; padding: .3rem .8rem;
+  background: var(--accent); border-radius: 2px;
+  font-size: .55rem; letter-spacing: .1em; color: white; display: inline-block;
+}
+
+.mock-ig { width: 80%; }
+.ig-stories { display: flex; gap: 4px; margin-bottom: 6px; }
+.ig-story {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: rgba(255,255,255,.15); border: 1.5px solid var(--accent);
+  flex-shrink: 0;
+}
+.ig-post { border-radius: 4px; aspect-ratio: 1; background: rgba(255,255,255,.08); }
+
+.mock-poster {
+  width: 65%; border: 1px solid rgba(232,193,74,.3);
+  padding: 1rem; text-align: center;
+}
+.mp-eyebrow { font-size: .45rem; letter-spacing: .2em; color: rgba(232,193,74,.6); }
+.mp-head { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: rgba(255,255,255,.85); line-height: 1; }
+.mp-divider { width: 40%; height: 1px; background: rgba(232,193,74,.4); margin: .4rem auto; }
+.mp-sub { font-size: .45rem; letter-spacing: .1em; color: rgba(255,255,255,.4); }
+
+.mock-brand2 {
+  width: 75%; text-align: center;
+}
+.mb-circle {
+  width: 52px; height: 52px; border-radius: 50%;
+  border: 2px solid rgba(255,255,255,.2);
+  margin: 0 auto .5rem;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; color: rgba(255,255,255,.6);
+}
+.mb-name { font-size: .55rem; letter-spacing: .2em; color: rgba(255,255,255,.4); }
+.mb-colors { display: flex; gap: 4px; justify-content: center; margin-top: .5rem; }
+.mb-color { width: 14px; height: 14px; border-radius: 2px; }
+
+.portfolio-overlay {
+  position: absolute; inset: 0;
+  background: rgba(14,14,14,.88);
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  opacity: 0; transition: opacity .25s;
+  padding: 1.5rem; text-align: center;
+}
+.ov-tag {
+  font-size: .65rem; letter-spacing: .15em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: .5rem;
+}
+.ov-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: .08em; color: white; }
+.ov-desc { font-size: .75rem; color: rgba(255,255,255,.5); margin-top: .4rem; line-height: 1.5; }
+
+/* WHY HIRE */
+.why { background: var(--paper); }
+.why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3rem; }
+.why-list { display: flex; flex-direction: column; gap: 1.5rem; }
+.why-item { display: flex; gap: 1.2rem; align-items: flex-start; }
+.why-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem; color: var(--accent); line-height: 1;
+  flex-shrink: 0; width: 2rem; text-align: center;
+}
+.why-text h4 { font-size: .95rem; font-weight: 500; margin-bottom: .3rem; }
+.why-text p { font-size: .85rem; line-height: 1.6; color: var(--muted); }
+.why-callout {
+  background: var(--ink); color: var(--paper);
+  padding: 3rem; display: flex; flex-direction: column; justify-content: space-between;
+}
+.callout-big {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3.5rem; line-height: .95; letter-spacing: .04em;
+  margin-bottom: 2rem;
+}
+.callout-big span { color: var(--accent); }
+.callout-tags { display: flex; flex-wrap: wrap; gap: .5rem; }
+.ctag {
+  font-size: .72rem; letter-spacing: .1em; padding: .35rem .9rem;
+  border: 1px solid rgba(255,255,255,.2); color: rgba(255,255,255,.6);
+}
+
+/* PRICING */
+.pricing { background: #f0ece3; }
+.pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-top: 3rem; }
+.price-card {
+  background: white; padding: 2.5rem 2rem;
+  border: 1px solid var(--border); position: relative;
+  transition: transform .2s;
+}
+.price-card:hover { transform: translateY(-4px); }
+.price-card.featured { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.feat-badge {
+  position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
+  background: var(--accent); color: white;
+  font-size: .65rem; letter-spacing: .12em; padding: .3rem .9rem;
+}
+.price-tier { font-size: .72rem; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+.price-card.featured .price-tier { color: rgba(255,255,255,.5); }
+.price-amount {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3rem; line-height: 1; color: var(--ink); margin-bottom: .3rem;
+}
+.price-card.featured .price-amount { color: var(--paper); }
+.price-per { font-size: .78rem; color: var(--muted); margin-bottom: 2rem; }
+.price-card.featured .price-per { color: rgba(255,255,255,.4); }
+.price-features { list-style: none; display: flex; flex-direction: column; gap: .7rem; margin-bottom: 2rem; }
+.price-features li { font-size: .85rem; display: flex; gap: .6rem; align-items: flex-start; line-height: 1.4; }
+.price-features li::before { content: '—'; color: var(--accent); flex-shrink: 0; }
+.price-card.featured .price-features li { color: rgba(255,255,255,.75); }
+.price-btn {
+  display: block; text-align: center;
+  padding: .75rem; border: 2px solid var(--ink);
+  font-size: .82rem; letter-spacing: .08em; text-transform: uppercase;
+  text-decoration: none; color: var(--ink); transition: all .2s;
+}
+.price-btn:hover { background: var(--ink); color: var(--paper); }
+.price-card.featured .price-btn {
+  border-color: white; color: white;
+}
+.price-card.featured .price-btn:hover { background: var(--accent); border-color: var(--accent); }
+
+/* CONTACT */
+.contact { background: var(--ink); color: var(--paper); }
+.contact-inner {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start;
+}
+.contact .section-title { color: var(--paper); }
+.contact-desc { font-size: .95rem; line-height: 1.7; color: rgba(255,255,255,.5); margin-top: 1.5rem; margin-bottom: 3rem; }
+.contact-links { display: flex; flex-direction: column; gap: 1rem; }
+.contact-link {
+  display: flex; align-items: center; gap: 1rem;
+  text-decoration: none; color: rgba(255,255,255,.7);
+  font-size: .9rem; padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  transition: color .2s;
+}
+.contact-link:hover { color: var(--accent); }
+.cl-icon {
+  width: 40px; height: 40px;
+  border: 1px solid rgba(255,255,255,.1);
+  display: flex; align-items: center; justify-content: center;
+  font-size: .8rem; flex-shrink: 0;
+}
+.contact-form { display: flex; flex-direction: column; gap: 1rem; }
+.form-group { display: flex; flex-direction: column; gap: .4rem; }
+.form-label { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.4); }
+.form-input {
+  background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
+  padding: .9rem 1rem; color: white; font-family: 'DM Sans', sans-serif;
+  font-size: .9rem; outline: none; transition: border-color .2s;
+}
+.form-input:focus { border-color: var(--accent); }
+.form-input::placeholder { color: rgba(255,255,255,.2); }
+textarea.form-input { resize: vertical; min-height: 110px; }
+.form-submit {
+  padding: 1rem 2rem; background: var(--accent); border: none;
+  color: white; font-family: 'DM Sans', sans-serif;
+  font-size: .9rem; letter-spacing: .08em; cursor: pointer;
+  transition: background .2s; text-align: center;
+  margin-top: .5rem;
+}
+.form-submit:hover { background: #b8331e; }
+
+/* FOOTER */
+footer {
+  background: #080808; color: rgba(255,255,255,.3);
+  padding: 2rem 4rem; display: flex;
+  justify-content: space-between; align-items: center;
+  font-size: .78rem; letter-spacing: .06em;
+}
+.footer-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem; letter-spacing: .12em; color: rgba(255,255,255,.5);
+}
+
+/* SCROLL REVEAL */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 900px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .hero-left { padding: 5rem 1.5rem 3rem; }
+  section { padding: 4rem 1.5rem; }
+  .services-grid { grid-template-columns: 1fr; }
+  .portfolio-grid { grid-template-columns: 1fr 1fr; }
+  .why-grid { grid-template-columns: 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+  footer { flex-direction: column; gap: 1rem; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">GET DESIGN</a>
+  <ul class="nav-links">
+    <li><a href="#portfolio">Ажлын жишээ</a></li>
+    <li><a href="#services">Үйлчилгээ</a></li>
+    <li><a href="#pricing">Үнэ</a></li>
+    <li><a href="#contact">Холбоо барих</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Захиалга өгөх</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Маркетинг & Брэнд Дизайнер</div>
+    <h1 class="hero-name">
+      ТАНЫ<br>БРЭНД<br><span>ӨСГӨНӨ</span>
+    </h1>
+    <p class="hero-desc">
+      Сошиал медиа дизайн, сурталчилгааны материал, брэнд айдентити — 
+      таны бизнесийн харагдах байдлыг мэргэжлийн түвшинд гаргана.
+    </p>
+    <div class="hero-btns">
+      <a href="#portfolio" class="btn-primary">Ажлуудыг үзэх</a>
+      <a href="#contact" class="btn-outline">Зөвлөгөө авах</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">3+</div>
+        <div class="stat-label">Жилийн туршлага</div>
+      </div>
+      <div>
+        <div class="stat-num">40+</div>
+        <div class="stat-label">Хийсэн проект</div>
+      </div>
+      <div>
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Хэрэглэгчийн сэтгэл ханамж</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="mock-grid">
+      <div class="mock-card">
+        <div class="mock-shape"></div>
+        <div class="mock-card-label">SOCIAL</div>
+        <div class="mock-card-sub">POST DESIGN</div>
+      </div>
+      <div class="mock-card">
+        <div class="mock-shape"></div>
+        <div class="mock-card-label">BRAND</div>
+        <div class="mock-card-sub">IDENTITY</div>
+      </div>
+      <div class="mock-card">
+        <div class="mock-shape"></div>
+        <div class="mock-card-label">ADS</div>
+        <div class="mock-card-sub">CREATIVE</div>
+      </div>
+      <div class="mock-card">
+        <div class="mock-shape"></div>
+        <div class="mock-card-label">POSTER</div>
+        <div class="mock-card-sub">DESIGN</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-label">Үйлчилгээ</div>
+  <div class="section-title reveal">ЮУГ ХИЙЖ<br>ЧАДАХ ВЭ</div>
+  <div class="services-grid">
+    <div class="service-item reveal">
+      <div class="service-num">01</div>
+      <div class="service-name">Сошиал медиа дизайн</div>
+      <div class="service-desc">Facebook, Instagram, TikTok-д зориулсан пост, сторис, cover зураг. Брэндийн өнгө, загвартай нийцсэн иж бүрэн дизайн.</div>
+      <div class="service-price">₮80,000-аас эхлэн / пост</div>
+    </div>
+    <div class="service-item reveal">
+      <div class="service-num">02</div>
+      <div class="service-name">Сурталчилгааны материал</div>
+      <div class="service-desc">Баннер, флаер, постер, каталог, танилцуулга. Хэвлэх болон дижитал хоёуланд тохирсон файл форматтай.</div>
+      <div class="service-price">₮120,000-аас эхлэн</div>
+    </div>
+    <div class="service-item reveal">
+      <div class="service-num">03</div>
+      <div class="service-name">Лого & брэнд айдентити</div>
+      <div class="service-desc">Лого дизайн, өнгөний палитр, фонт сонголт, брэндийн гарын авлага. Байгууллагын нэгдмэл дүр төрх.</div>
+      <div class="service-price">₮250,000-аас эхлэн</div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio" style="background:#f5f2ec;">
+  <div class="portfolio-intro">
+    <div>
+      <div class="section-label reveal">Ажлын жишээ</div>
+      <div class="section-title reveal">СОНГОСОН<br>БҮТЭЭЛҮҮД</div>
+    </div>
+    <p style="font-size:.85rem;color:var(--muted);max-width:260px;line-height:1.6" class="reveal">
+      Витафит Милк болон бусад брэндүүдэд хийсэн дизайны ажлуудаас сонгон авсан жишээнүүд.
+    </p>
+  </div>
+  <div class="portfolio-grid">
+
+    <div class="portfolio-item reveal">
+      <div class="portfolio-thumb pt-social">
+        <div class="mock-social">
+          <div class="ms-post">POST</div>
+          <div class="ms-post">STORY</div>
+          <div class="ms-post">REEL</div>
+          <div class="ms-post">ADS</div>
+        </div>
+      </div>
+      <div class="portfolio-overlay">
+        <div class="ov-tag">Сошиал медиа</div>
+        <div class="ov-title">Сарын контент план</div>
+        <div class="ov-desc">Facebook & Instagram пост дизайн, брэндийн өнгөтэй нийцсэн</div>
+      </div>
+    </div>
+
+    <div class="portfolio-item reveal">
+      <div class="portfolio-thumb pt-brand">
+        <div class="mock-logo">
+          BRAND<br>
+          <span class="mock-logo-sub">IDENTITY DESIGN</span>
+        </div>
+      </div>
+      <div class="portfolio-overlay">
+        <div class="ov-tag">Брэнд айдентити</div>
+        <div class="ov-title">Лого & Брэнд гарын авлага</div>
+        <div class="ov-desc">Лого, өнгөний систем, хэрэглээний дүрэм</div>
+      </div>
+    </div>
+
+    <div class="portfolio-item reveal">
+      <div class="portfolio-thumb pt-ads">
+        <div class="mock-ad">
+          <div class="mock-ad-head">ВИТАФИТ МИЛК</div>
+          <div class="mock-ad-title">ШИНЭ БҮТЭЭГДЭХҮҮН</div>
+          <div class="mock-ad-btn">ДЭЛГЭРЭНГҮЙ</div>
+        </div>
+      </div>
+      <div class="portfolio-overlay">
+        <div class="ov-tag">Дижитал зар</div>
+        <div class="ov-title">Facebook Ads Creative</div>
+        <div class="ov-desc">Бүтээгдэхүүний сурталчилгааны дизайн</div>
+      </div>
+    </div>
+
+    <div class="portfolio-item reveal">
+      <div class="portfolio-thumb pt-social2">
+        <div class="mock-ig">
+          <div class="ig-stories">
+            <div class="ig-story"></div>
+            <div class="ig-story"></div>
+            <div class="ig-story"></div>
+          </div>
+          <div class="ig-post"></div>
+        </div>
+      </div>
+      <div class="portfolio-overlay">
+        <div class="ov-tag">Instagram</div>
+        <div class="ov-title">Профайл & Контент</div>
+        <div class="ov-desc">Highlight cover, story template, feed дизайн</div>
+      </div>
+    </div>
+
+    <div class="portfolio-item reveal">
+      <div class="portfolio-thumb pt-poster">
+        <div class="mock-poster">
+          <div class="mp-eyebrow">ОЙГООР БАЯР ХҮРГЭЕ</div>
+          <div class="mp-head">ХАМТДАА<br>ЯЛЪЯ</div>
+          <div class="mp-divider"></div>
+          <div class="mp-sub">SPECIAL EVENT · 2024</div>
+        </div>
+      </div>
+      <div class="portfolio-overlay">
+        <div class="ov-tag">Постер</div>
+        <div class="ov-title">Тусгай арга хэмжээний постер</div>
+        <div class="ov-desc">Хэвлэх болон дижитал хоёуланд тохирсон</div>
+      </div>
+    </div>
+
+    <div class="portfolio-item reveal">
+      <div class="portfolio-thumb pt-brand2">
+        <div class="mock-brand2">
+          <div class="mb-circle">MD</div>
+          <div class="mb-name">BRAND SYSTEM</div>
+          <div class="mb-colors">
+            <div class="mb-color" style="background:#d4402a"></div>
+            <div class="mb-color" style="background:#2a5fd4"></div>
+            <div class="mb-color" style="background:#e8c14a"></div>
+            <div class="mb-color" style="background:#1a1a1a"></div>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-overlay">
+        <div class="ov-tag">Брэнд систем</div>
+        <div class="ov-title">Өнгөний палитр & Загвар</div>
+        <div class="ov-desc">Иж бүрэн брэндийн дизайн систем</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY HIRE -->
+<section class="why">
+  <div class="why-grid">
+    <div class="why-list">
+      <div class="section-label reveal">Яагаад миний дизайн</div>
+      <div class="section-title reveal">ЯЛГАХ<br>ХҮЧИН ЗҮЙЛ</div>
+      <div class="why-item reveal">
+        <div class="why-num">1</div>
+        <div class="why-text">
+          <h4>Маркетингийн мэдлэгтэй дизайнер</h4>
+          <p>Зөвхөн харагдахын тулд биш — борлуулалт нэмэгдүүлэх зорилготой дизайн хийнэ. Витафит Милк ХХК-д маркетингийн дизайнераар ажиллаж туршлага хуримтлуулсан.</p>
+        </div>
+      </div>
+      <div class="why-item reveal">
+        <div class="why-num">2</div>
+        <div class="why-text">
+          <h4>Хурдан хийдэг, хугацаагаа баримтлана</h4>
+          <p>Яаралтай захиалгыг 24 цагт хүргэнэ. Энгийн дизайнийг ихэнхдээ өдрийн доторх дуусгана.</p>
+        </div>
+      </div>
+      <div class="why-item reveal">
+        <div class="why-num">3</div>
+        <div class="why-text">
+          <h4>Засвар хязгааргүй — сэтгэл ханатал</h4>
+          <p>Нэг захиалгад 3 удаагийн засвар үнэгүй хийгдэнэ. Таны брэндтэй яг нийцтэл ажиллана.</p>
+        </div>
+      </div>
+    </div>
+    <div class="why-callout reveal">
+      <div class="callout-big">БРЭНД БОЛ ЗҮГЭЭР <span>ЗУРАГ БИШ</span></div>
+      <div>
+        <p style="font-size:.88rem;color:rgba(255,255,255,.5);line-height:1.7;margin-bottom:1.5rem">
+          Таны бизнесийн хамгийн анхны сэтгэгдлийг дизайн бүрдүүлдэг. Сайн дизайн нь харилцагчийн итгэлийг бий болгодог.
+        </p>
+        <div class="callout-tags">
+          <span class="ctag">FACEBOOK ADS</span>
+          <span class="ctag">INSTAGRAM</span>
+          <span class="ctag">ЛОГО</span>
+          <span class="ctag">ФЛАЕР</span>
+          <span class="ctag">БАННЕР</span>
+          <span class="ctag">КАТАЛОГ</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="section-label reveal">Үнийн мэдээлэл</div>
+  <div class="section-title reveal">ҮНЭ ТОГТООЛТ</div>
+  <div class="pricing-grid">
+    <div class="price-card reveal">
+      <div class="price-tier">Жижиг захиалга</div>
+      <div class="price-amount">80K</div>
+      <div class="price-per">₮ / нэг ажил</div>
+      <ul class="price-features">
+        <li>1 сошиал медиа пост</li>
+        <li>2 удаагийн засвар</li>
+        <li>PNG & JPG файл</li>
+        <li>24-48 цагт хүргэнэ</li>
+      </ul>
+      <a href="#contact" class="price-btn">Захиалах</a>
+    </div>
+    <div class="price-card featured reveal">
+      <div class="feat-badge">ХАМГИЙН ИХ СОНГОЛТ</div>
+      <div class="price-tier">Сарын пакет</div>
+      <div class="price-amount">450K</div>
+      <div class="price-per">₮ / сар</div>
+      <ul class="price-features">
+        <li>12 пост дизайн / сар</li>
+        <li>4 сторис / сар</li>
+        <li>Хязгааргүй засвар</li>
+        <li>Editable Canva файл</li>
+        <li>Контент төлөвлөлт</li>
+      </ul>
+      <a href="#contact" class="price-btn">Захиалах</a>
+    </div>
+    <div class="price-card reveal">
+      <div class="price-tier">Брэнд пакет</div>
+      <div class="price-amount">350K</div>
+      <div class="price-per">₮-аас / лого + брэнд</div>
+      <ul class="price-features">
+        <li>Лого дизайн (3 хувилбар)</li>
+        <li>Өнгөний систем</li>
+        <li>Брэндийн гарын авлага</li>
+        <li>Нэрийн хуудас дизайн</li>
+      </ul>
+      <a href="#contact" class="price-btn">Захиалах</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div>
+      <div class="section-label">Холбоо барих</div>
+      <div class="section-title reveal">ЗАХИАЛГА<br>ӨГӨХ</div>
+      <p class="contact-desc">
+        Шинэ захиалга, асуулт, зөвлөгөөний хувьд доорх сувгуудаар холбоо барина уу. 
+        Ихэнхдээ 2–4 цагийн дотор хариу өгнө.
+      </p>
+      <div class="contact-links">
+        <a href="tel:+97699XXXXXX" class="contact-link">
+          <div class="cl-icon">📱</div>
+          <div>
+            <div style="font-size:.72rem;letter-spacing:.1em;color:rgba(255,255,255,.3);margin-bottom:.2rem">УТАС / VIBER / WHATSAPP</div>
+            +976 95 44 22 94
+          </div>
+        </a>
+        <a href="https://fb.me/yourpage" class="contact-link">
+          <div class="cl-icon">📘</div>
+          <div>
+            <div style="font-size:.72rem;letter-spacing:.1em;color:rgba(255,255,255,.3);margin-bottom:.2rem">FACEBOOK</div>
+            https://www.facebook.com/m.gantogtoh.310444
+          </div>
+        </a>
+        <a href="mailto:your@email.com" class="contact-link">
+          <div class="cl-icon">✉️</div>
+          <div>
+            <div style="font-size:.72rem;letter-spacing:.1em;color:rgba(255,255,255,.3);margin-bottom:.2rem">И-МЭЙЛ</div>
+            your@email.com
+          </div>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="contact-form reveal">
+        <div class="form-group">
+          <label class="form-label">Нэр</label>
+          <input class="form-input" type="text" placeholder="Таны нэр">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Утасны дугаар</label>
+          <input class="form-input" type="tel" placeholder="9544 2294">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Ямар үйлчилгээ хэрэгтэй вэ?</label>
+          <select class="form-input" style="appearance:none;cursor:pointer">
+            <option value="" disabled selected>Сонгоно уу</option>
+            <option>Сошиал медиа пост дизайн</option>
+            <option>Сурталчилгааны материал</option>
+            <option>Лого & брэнд айдентити</option>
+            <option>Сарын пакет</option>
+            <option>Бусад</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Нэмэлт мэдээлэл</label>
+          <textarea class="form-input" placeholder="Ямар бизнес эрхлэдэг, ямар стиль таалагддаг, хугацаа гэх мэт..."></textarea>
+        </div>
+        <button class="form-submit" onclick="alert('Захиалга хүлээн авлаа! Тантай удахгүй холбогдоно.')">
+          ЗАХИАЛГА ИЛГЭЭХ →
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">GET DESIGN · MN</div>
+  <div>© 2025 — Маркетинг & Брэнд Дизайн</div>
+  <div>Улаанбаатар, Монгол</div>
+</footer>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
