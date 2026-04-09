@@ -231,9 +231,14 @@ section { padding: 6rem 4rem; }
 .portfolio-item:hover { transform: translateY(-4px); }
 .portfolio-item:hover .portfolio-overlay { opacity: 1; }
 .portfolio-thumb {
-  width: 100%; aspect-ratio: 4/3;
+  width: 100%; min-height: 200px;
   display: flex; align-items: center; justify-content: center;
   position: relative; overflow: hidden;
+}
+.portfolio-thumb img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  background: #111;
 }
 .pt-social { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); }
 .pt-brand  { background: linear-gradient(135deg, #2c1810 0%, #8b2500 100%); }
@@ -576,7 +581,7 @@ footer {
 
     <div class="portfolio-item reveal">
       <div class="portfolio-thumb" style="background:#111;">
-        <img src="wor1.jpg" alt="Дизайн 1" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <img src="wor1.jpg" alt="Дизайн 1" style="width:100%;height:auto;object-fit:contain;display:block;background:#111;">
       </div>
       <div class="portfolio-overlay">
         <div class="ov-tag">Сошиал медиа</div>
@@ -587,7 +592,7 @@ footer {
 
     <div class="portfolio-item reveal">
       <div class="portfolio-thumb" style="background:#111;">
-        <img src="wor2.jpg" alt="Дизайн 2" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <img src="wor2.jpg" alt="Дизайн 2" style="width:100%;height:auto;object-fit:contain;display:block;background:#111;">
       </div>
       <div class="portfolio-overlay">
         <div class="ov-tag">Сурталчилгаа</div>
@@ -598,7 +603,7 @@ footer {
 
     <div class="portfolio-item reveal">
       <div class="portfolio-thumb" style="background:#111;">
-        <img src="wor3.jpg" alt="Дизайн 3" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <img src="wor3.jpg" alt="Дизайн 3" style="width:100%;height:auto;object-fit:contain;display:block;background:#111;">
       </div>
       <div class="portfolio-overlay">
         <div class="ov-tag">Сошиал медиа</div>
@@ -609,7 +614,7 @@ footer {
 
     <div class="portfolio-item reveal">
       <div class="portfolio-thumb" style="background:#111;">
-        <img src="wor4.jpg" alt="Дизайн 4" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <img src="wor4.jpg" alt="Дизайн 4" style="width:100%;height:auto;object-fit:contain;display:block;background:#111;">
       </div>
       <div class="portfolio-overlay">
         <div class="ov-tag">Сурталчилгаа</div>
